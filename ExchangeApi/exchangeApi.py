@@ -1,11 +1,11 @@
 
 
 
+
 import requests
 import json
 
 url = "https://api.apilayer.com/fixer/convert?to={0}&from={1}&amount={2}"
-
 
 
 from_currency = input("Satılan döviz cinsi giriniz: ")
