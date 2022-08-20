@@ -1,14 +1,32 @@
 
+
+
 import requests
+import json
 
-base_url = 'https://api.binance.com'
+url = "https://api.apilayer.com/fixer/convert?to={0}&from={1}&amount={2}"
 
-path = '/api/v3/exchangeInfo'
 
-r = requests.get(base_url+path)
 
-params = '?symbol=BTCUSDT&interval=1m'
+from_currency = input("Satılan döviz cinsi giriniz: ")
 
-r = requests.get(base_url+path,params={'symbol':'BTCUSDT','interval':'1m'})
+to_currency = input("Alınan döviz cinsi: ")
 
-print(r.json)
+value = int(input(f"Ne kadar {to_currency} alacaksınız: "))
+
+url = url.format(from_currency,to_currency,str(value))
+
+
+payload = {}
+headers= {
+  "apikey": "36IwPSaJ4fmanzBIcrQ1Pwn1dinlDSef"
+}
+
+response = requests.request("GET", url, headers=headers, data = payload)
+
+
+status_code = response.status_code
+result = json.loads(response.text)
+
+
+print(str(value) + " " + from_currency + " = " + str(result['result']) + " " + to_currency)
