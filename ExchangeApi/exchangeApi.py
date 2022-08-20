@@ -28,5 +28,4 @@ response = requests.request("GET", url, headers=headers, data = payload)
 status_code = response.status_code
 result = json.loads(response.text)
 
-
 print(str(value) + " " + from_currency + " = " + str(result['result']) + " " + to_currency)
