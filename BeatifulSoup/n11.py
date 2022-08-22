@@ -1,7 +1,4 @@
 
-from cgitb import text
-from hashlib import new
-from urllib import response
 import requests
 from bs4 import BeautifulSoup
 
