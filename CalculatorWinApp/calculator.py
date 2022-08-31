@@ -70,7 +70,8 @@ class MainForm(QMainWindow):
         result = int(self.lbl_num1.text()) / int(self.lbl_num2.text())
         return self.result.setText('Sonuç: '+ str(result))
 
-        
+
+
 
 def app():
     app = QApplication(sys.argv)
